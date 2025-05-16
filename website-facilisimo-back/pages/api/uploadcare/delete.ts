@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import runMiddleware, { cors } from '../../utils/cors';
+import runMiddleware, { cors } from '../../../utils/cors';
 import { deleteFile, UploadcareSimpleAuthSchema } from '@uploadcare/rest-client';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -42,6 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       return res.status(200).json({ success: true, message: 'Archivo eliminado de Uploadcare correctamente.' });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (uploadcareError: any) {
       console.error('Error al eliminar archivo en Uploadcare:', uploadcareError);
       return res.status(uploadcareError.statusCode || 500).json({
@@ -49,7 +50,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         details: uploadcareError.message || 'Error desconocido al eliminar el archivo.',
       });
     }
-
+    
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error('Error interno del servidor al procesar la eliminación:', error);
     return res.status(500).json({ error: 'Error interno al intentar eliminar el archivo', details: error.message });
