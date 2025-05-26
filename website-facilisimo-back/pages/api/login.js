@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   const { username, password } = req.body;
 
   if (username === 'AdminFacilisimo' && password === 'Facilisimo123*') {
-    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '200h' });
+    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '2h' });
 
     const serialized = serialize('token', token, {
       httpOnly: true,
