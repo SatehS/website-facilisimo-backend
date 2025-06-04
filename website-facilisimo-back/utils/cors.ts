@@ -10,6 +10,7 @@ const cors = Cors({
       'https://website-facilisimo-backend-qvpw.vercel.app',
       'website-facilisimo-backend-qvpw.vercel.app',
       'https://facilisimo.co'
+      
     ];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
