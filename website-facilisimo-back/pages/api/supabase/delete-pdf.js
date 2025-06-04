@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     }
   
     const { path } = req.body;
-    console.log('Path recibido:', path); // Para depuración
+    console.log('Path recibido:', path); // Para depuración de bugs
   
     if (!path) {
       return res.status(400).json({ success: false, message: 'Ruta del archivo no proporcionada' });
