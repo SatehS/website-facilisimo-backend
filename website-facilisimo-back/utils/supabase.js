@@ -12,4 +12,5 @@ if (!supabaseUrl || !supabaseServiceRoleKey) {
 // Crea un cliente Supabase con la clave de rol de servicio (solo para uso en el servidor)
 const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
 
+
 export default supabase;
